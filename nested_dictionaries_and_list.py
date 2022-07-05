@@ -37,12 +37,19 @@ students = [
 ]
 
 
-def iterateDictionary(some_list):
-    i = 0
-    while i < len(some_list):
-        print(some_list[i])
-        i += 1
+# def iterateDictionary(some_list):
+#     i = 0
+#     while i < len(some_list):
+#         print(some_list[i])
+#         i += 1
 
+# iterateDictionary(students) #my way works technically...below is answer from video
+def iterateDictionary(some_list):
+    for i in range(0, len(some_list)):
+        output = ""
+        for key,val in some_list[i].items():
+            output += f"{key} - {val},"
+        print(output)
 # iterateDictionary(students)
 
 # challenge #3
@@ -55,7 +62,15 @@ def iterateDictionary2(key_name, some_list):
         print(some_list[x][key_name])
         x += 1
 
-# iterateDictionary2('last_name', students)
+# iterateDictionary2('last_name', students) #below is video answer
+def iterateDictionary2(key_name, some_list):
+    for i in range(0, len(some_list)):
+
+        for key,val in some_list[i].items():
+            if key == key_name:
+
+                print(val) 
+# iterateDictionary2("first_name", students)
 
 # challenge #4 iterate through a dictionary with list values
 
@@ -64,20 +79,28 @@ dojo = {
     'locations': ['San Jose', 'Seattle', 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
     'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
 }
-def printInfo(some_dict):
-    # print(some_dict) #accepts the function input test complete
-    print(len(some_dict['locations']), "Locations")
-    j = 0
-    while j < len(some_dict['locations']):
-        print(some_dict['locations'][j])
-        j +=1
-    print()
-    print(len(some_dict['instructors']), "Instructors")
-    g = 0
-    while g < len(some_dict['instructors']):
-        print(some_dict['instructors'][g])
-        g +=1
+# # def printInfo(some_dict):
+#     # print(some_dict) #accepts the function input test complete
+#     print(len(some_dict['locations']), "Locations")
+#     j = 0
+#     while j < len(some_dict['locations']):
+#         print(some_dict['locations'][j])
+#         j +=1
+#     print()
+#     print(len(some_dict['instructors']), "Instructors")
+#     g = 0
+#     while g < len(some_dict['instructors']):
+#         print(some_dict['instructors'][g])
+#         g +=1
 
 
+# printInfo(dojo) #answer from video below
+
+def printInfo(dict):
+    for key,val in dict.items():
+        print("-------------")
+        print(f"{len(val)} {key.upper()}")
+        for i in range(0, len(val)):
+            print(val[i])
 printInfo(dojo)
 
